@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Entrar — Painel Trinar</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="login-wrap">
+    <form class="login" id="form-login">
+      <a class="logo" href="/"><b>Trinar</b><span>painel do ateliê</span></a>
+      <div id="erro" class="alerta alerta-erro hidden" role="alert"></div>
+      <label class="field">E-mail<input name="email" type="email" autocomplete="username" required></label>
+      <label class="field">Senha<input name="senha" type="password" autocomplete="current-password" required></label>
+      <button class="btn btn-primary" type="submit">Entrar</button>
+    </form>
+  </div>
+  <script src="/js/util.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

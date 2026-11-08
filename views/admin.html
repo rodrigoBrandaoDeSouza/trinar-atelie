@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Painel — Trinar Ateliê Criativo</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="painel">
+    <aside class="lateral">
+      <div class="marca"><b>Trinar</b><span>painel do ateliê</span></div>
+      <nav class="abas" aria-label="Seções do painel">
+        <button class="aba" data-aba="geral" type="button"><span>Visão geral</span><span class="badge hidden" id="badge-geral"></span></button>
+        <button class="aba" data-aba="cursos" type="button"><span>Cursos</span></button>
+        <button class="aba" data-aba="alunas" type="button"><span>Alunas</span></button>
+        <button class="aba" data-aba="mensalidades" type="button"><span>Mensalidades</span><span class="badge hidden" id="badge-mens"></span></button>
+        <button class="aba" data-aba="inscricoes" type="button"><span>Inscrições</span></button>
+        <button class="aba" data-aba="conversas" type="button"><span>Conversas</span><span class="badge hidden" id="badge-conversas"></span></button>
+        <button class="aba" data-aba="whatsapp" type="button"><span>WhatsApp</span><span class="dot-status off" id="dot-whats" title="Desconectado"></span></button>
+      </nav>
+      <div class="rodape">
+        <b id="nome-usuaria"></b>
+        <a href="/" target="_blank" rel="noopener">Ver site público →</a>
+        <button type="button" id="sair">Sair</button>
+      </div>
+    </aside>
+
+    <main class="conteudo">
+      <div class="topo">
+        <div>
+          <span class="muted small" id="subtitulo"></span>
+          <h1 id="titulo">Visão geral</h1>
+        </div>
+        <div class="acoes" id="acoes-topo">
+          <label class="field" id="campo-mes">Mês<input type="month" id="mes"></label>
+          <a class="btn btn-outline btn-sm hidden" id="btn-csv" href="#">Exportar planilha</a>
+          <button class="btn btn-primary btn-sm" type="button" id="btn-principal">+ Nova aluna</button>
+        </div>
+      </div>
+      <div id="tela" aria-live="polite"></div>
+    </main>
+  </div>
+
+  <!-- Modal: curso -->
+  <dialog id="dlg-curso">
+    <form method="dialog" id="form-curso">
+      <h2 id="dlg-curso-titulo">Novo curso</h2>
+      <div class="alerta alerta-erro hidden" role="alert"></div>
+      <div class="grid-form">
+        <label class="field">Nome<input name="nome" required maxlength="120"></label>
+        <label class="field">Nível<input name="nivel" maxlength="60" placeholder="Iniciante, Todos os níveis…"></label>
+        <label class="field">Dias e horário<input name="horario" maxlength="120" placeholder="Ter e Qui · 19h às 21h"></label>
+        <label class="field">Vagas<input name="vagas" type="number" min="1" required></label>
+        <label class="field">Mensalidade (R$)<input name="valor_mensal" type="number" min="0" step="0.01" required></label>
+        <label class="field">Cor do cartão<input name="cor" type="color" value="#D9C9B4"></label>
+        <label class="field">Ordem no site<input name="ordem" type="number" value="0"></label>
+      </div>
+      <label class="field">Descrição<textarea name="descricao" rows="3" maxlength="600"></textarea></label>
+      <label class="check"><input type="checkbox" name="ativo" checked>Mostrar no site e aceitar inscrições</label>
+      <div class="navegacao">
+        <button class="btn btn-outline" value="cancel" formnovalidate type="submit">Cancelar</button>
+        <button class="btn btn-primary" value="ok" type="submit">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Modal: aluna -->
+  <dialog id="dlg-aluna">
+    <form method="dialog" id="form-aluna">
+      <h2>Nova aluna</h2>
+      <div class="alerta alerta-erro hidden" role="alert"></div>
+      <div class="grid-form">
+        <label class="field">Nome completo<input name="nome" required maxlength="120"></label>
+        <label class="field">WhatsApp<input name="whatsapp" type="tel" required></label>
+        <label class="field">E-mail<input name="email" type="email"></label>
+        <label class="field">Nascimento<input name="nascimento" type="date"></label>
+        <label class="field">Curso<select name="curso_id" required></select></label>
+        <label class="field">Forma de pagamento
+          <select name="forma_pagamento"><option value="pix">Pix</option><option value="cartao">Cartão</option><option value="boleto">Boleto</option><option value="dinheiro">Dinheiro</option></select>
+        </label>
+        <label class="field">Dia do vencimento<input name="dia_vencimento" type="number" min="1" max="28" value="10"></label>
+      </div>
+      <label class="field">Observações<textarea name="observacoes" rows="2"></textarea></label>
+      <div class="navegacao">
+        <button class="btn btn-outline" value="cancel" formnovalidate type="submit">Cancelar</button>
+        <button class="btn btn-primary" value="ok" type="submit">Matricular</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Modal: aviso para a turma -->
+  <dialog id="dlg-aviso">
+    <form method="dialog" id="form-aviso">
+      <h2>Avisar turma</h2>
+      <p class="muted small" id="aviso-curso"></p>
+      <div class="alerta alerta-erro hidden" role="alert"></div>
+      <label class="field">Mensagem
+        <textarea name="texto" rows="5" required maxlength="2000" placeholder="Oi, {nome}! A aula de sábado foi remarcada para…"></textarea>
+      </label>
+      <p class="small muted">Use {nome} para incluir o primeiro nome de cada aluna. As mensagens saem uma a uma, com intervalo de alguns segundos.</p>
+      <div class="navegacao">
+        <button class="btn btn-outline" value="cancel" formnovalidate type="submit">Cancelar</button>
+        <button class="btn btn-primary" value="ok" type="submit">Enviar pelo WhatsApp</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/js/util.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

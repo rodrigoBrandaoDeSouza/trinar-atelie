@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trinar Ateliê Criativo — Cursos de costura, bordado, crochê e mais</title>
+  <meta name="description" content="Cursos de artes manuais em turmas pequenas. Veja horários, vagas e faça sua inscrição online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="/"><b>Trinar</b><span>ateliê criativo</span></a>
+      <nav class="nav" aria-label="Principal">
+        <a href="#cursos">Cursos</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#sobre">O ateliê</a>
+        <a href="#contato">Contato</a>
+        <a class="btn btn-primary btn-sm" href="/inscricao">Inscreva-se</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div class="hero-text">
+        <span class="tag">Inscrições abertas</span>
+        <h1>Aprenda a criar com as próprias mãos.</h1>
+        <p class="lead">Cursos de costura, bordado, crochê, pintura e muito mais, em turmas pequenas e no ritmo de cada aluna. Escolha seu curso e faça a inscrição online em poucos minutos.</p>
+        <div class="acoes">
+          <a class="btn btn-primary" href="/inscricao">Quero me inscrever</a>
+          <a class="btn btn-outline" href="#cursos">Ver cursos</a>
+        </div>
+        <div class="beneficios" id="beneficios"></div>
+      </div>
+      <!-- Troque pelas fotos reais: coloque os arquivos em public/img e ajuste as classes foto-* no CSS -->
+      <div class="mosaico">
+        <div class="foto foto-grande" role="img" aria-label="Foto do ateliê">Foto do ateliê</div>
+        <div class="foto foto-media foto-a" role="img" aria-label="Trabalho de aluna">Trabalho de aluna</div>
+        <div class="foto foto-media foto-b" role="img" aria-label="Aula em andamento">Aula em andamento</div>
+      </div>
+    </section>
+
+    <section id="cursos" class="secao-branca">
+      <div class="container secao">
+        <div class="cabecalho-secao">
+          <div>
+            <span class="sobretitulo">Cursos</span>
+            <h2 class="titulo">Escolha o que você quer aprender</h2>
+          </div>
+          <p class="muted">Vagas atualizadas em tempo real.</p>
+        </div>
+        <div class="cursos-grid" id="lista-cursos" aria-live="polite">
+          <div class="esqueleto"></div><div class="esqueleto"></div><div class="esqueleto"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="container secao">
+      <div class="cabecalho-secao"><div>
+        <span class="sobretitulo">Como funciona</span>
+        <h2 class="titulo">Da inscrição à primeira aula</h2>
+      </div></div>
+      <div class="passos">
+        <div class="passo"><span class="num">1</span><h3>Escolha o curso</h3><p>Veja horários, vagas e o valor da mensalidade de cada turma.</p></div>
+        <div class="passo"><span class="num">2</span><h3>Inscreva-se online</h3><p>Preencha seus dados e escolha a forma de pagamento. Leva menos de 3 minutos.</p></div>
+        <div class="passo"><span class="num">3</span><h3>Confirmação</h3><p>O ateliê confirma sua vaga pelo WhatsApp e envia as informações de pagamento.</p></div>
+        <div class="passo"><span class="num">4</span><h3>Primeira aula</h3><p>É só chegar. A lista de materiais de cada curso é enviada na confirmação.</p></div>
+      </div>
+    </section>
+
+    <section id="sobre" class="secao-verde">
+      <div class="container secao sobre">
+        <div class="foto" role="img" aria-label="Foto da professora">Foto da professora</div>
+        <div class="sobre-texto">
+          <span class="sobretitulo">O ateliê</span>
+          <h2 class="titulo">Um espaço para criar, aprender e desacelerar.</h2>
+          <!-- EDITAR: texto sobre o ateliê -->
+          <p>[Texto sobre o ateliê: a história, quem é a professora, há quanto tempo dá aulas e o que torna o Trinar especial.]</p>
+          <a class="btn btn-claro" id="link-instagram" href="https://www.instagram.com/trinarateliecriativo" rel="noopener" target="_blank"></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="container secao contato">
+      <div class="contato-info">
+        <span class="sobretitulo">Contato</span>
+        <h2 class="titulo">Venha conhecer o ateliê</h2>
+        <p class="muted">Dúvidas sobre algum curso? Fale com a gente pelo WhatsApp.</p>
+        <a class="btn btn-primary" id="btn-whats" href="#contato" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+      <dl class="cartao">
+        <div><dt>Endereço</dt><dd id="cfg-endereco">[Endereço do ateliê]</dd></div>
+        <div><dt>WhatsApp</dt><dd id="cfg-whats">[(00) 00000-0000]</dd></div>
+        <div><dt>Atendimento</dt><dd id="cfg-horario">[Dias e horários]</dd></div>
+      </dl>
+      <div class="mapa" id="mapa">Mapa</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© <span id="ano"></span> Trinar Ateliê Criativo</span>
+      <a href="/admin">Área da professora</a>
+    </div>
+  </footer>
+
+  <script src="/js/util.js"></script>
+  <script src="/js/site.js"></script>
+</body>
+</html>

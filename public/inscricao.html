@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscrição — Trinar Ateliê Criativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="/"><b>Trinar</b><span>ateliê criativo</span></a>
+      <a href="/" class="small">← Voltar ao site</a>
+    </div>
+  </header>
+
+  <main class="container insc">
+    <div>
+      <h1 class="titulo">Inscrição</h1>
+      <p class="muted">Três passos rápidos. Sua vaga é confirmada pelo ateliê via WhatsApp.</p>
+    </div>
+
+    <ol class="stepper" id="stepper" aria-label="Etapas da inscrição">
+      <li data-passo="1"><span class="dot">1</span>Curso</li>
+      <li data-passo="2"><span class="dot">2</span>Seus dados</li>
+      <li data-passo="3"><span class="dot">3</span>Pagamento</li>
+    </ol>
+
+    <div class="insc-layout">
+      <form class="insc-main" id="form" novalidate>
+        <div id="erro" class="alerta alerta-erro hidden" role="alert"></div>
+
+        <section data-etapa="1">
+          <h2>1. Escolha o curso</h2>
+          <div class="opcoes" id="opcoes-curso" role="group" aria-label="Cursos"></div>
+        </section>
+
+        <section data-etapa="2" class="hidden">
+          <h2>2. Seus dados</h2>
+          <div class="grid-form">
+            <label class="field">Nome completo<input name="nome" autocomplete="name" required maxlength="120" placeholder="Como está no documento"></label>
+            <label class="field">WhatsApp<input name="whatsapp" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000"></label>
+            <label class="field">E-mail<input name="email" type="email" autocomplete="email" placeholder="voce@email.com"></label>
+            <label class="field">Data de nascimento<input name="nascimento" type="date"></label>
+            <label class="field">Como conheceu o ateliê?
+              <select name="como_conheceu"><option>Instagram</option><option>Indicação de amiga</option><option>Passei em frente</option><option>Outro</option></select>
+            </label>
+            <label class="field">Já tem experiência?
+              <select name="experiencia"><option>Nunca fiz</option><option>Sei o básico</option><option>Já tenho prática</option></select>
+            </label>
+          </div>
+          <label class="field">Observações (opcional)
+            <textarea name="observacoes" rows="3" maxlength="1000" placeholder="Para o Ateliê Kids, informe o nome da criança e do responsável."></textarea>
+          </label>
+          <label class="honeypot" aria-hidden="true">Não preencha<input name="site" tabindex="-1" autocomplete="off"></label>
+        </section>
+
+        <section data-etapa="3" class="hidden">
+          <h2>3. Pagamento da mensalidade</h2>
+          <p class="muted small">O primeiro pagamento só é cobrado depois que o ateliê confirmar sua vaga.</p>
+          <div class="opcoes" id="opcoes-pagamento" role="group" aria-label="Forma de pagamento"></div>
+          <label class="check"><input type="checkbox" name="aceite">Li e aceito as regras do ateliê (faltas, reposição de aulas e cancelamento).</label>
+        </section>
+
+        <section data-etapa="4" class="hidden sucesso" aria-live="polite">
+          <span class="icone" id="icone-ok"></span>
+          <h2>Inscrição enviada!</h2>
+          <p id="msg-sucesso"></p>
+          <a class="btn btn-primary" href="/">Voltar ao site</a>
+        </section>
+
+        <div class="navegacao" id="navegacao">
+          <button type="button" class="btn btn-outline" id="voltar">Voltar</button>
+          <button type="submit" class="btn btn-primary" id="avancar">Continuar</button>
+        </div>
+      </form>
+
+      <aside class="resumo" aria-label="Resumo da inscrição">
+        <h2 class="small">Resumo</h2>
+        <div class="capa" id="r-capa"></div>
+        <div>
+          <div class="serif" id="r-nome">Escolha um curso</div>
+          <div class="muted small" id="r-horario"></div>
+        </div>
+        <dl>
+          <div><dt>Mensalidade</dt><dd id="r-valor">—</dd></div>
+          <div><dt>Pagamento</dt><dd id="r-forma">—</dd></div>
+          <div><dt>Vencimento</dt><dd>Todo dia 10</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </main>
+
+  <script src="/js/util.js"></script>
+  <script src="/js/inscricao.js"></script>
+</body>
+</html>

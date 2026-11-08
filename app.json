@@ -1,0 +1,59 @@
+{
+  "name": "Trinar Ateliê Criativo",
+  "description": "Site, inscrição online e painel de gestão de cursos, alunas e mensalidades.",
+  "keywords": [
+    "node",
+    "express",
+    "postgres",
+    "atelie"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "addons": [
+    {
+      "plan": "heroku-postgresql:essential-0"
+    }
+  ],
+  "env": {
+    "NODE_ENV": {
+      "value": "production"
+    },
+    "SESSION_SECRET": {
+      "description": "Segredo para assinar o cookie de login",
+      "generator": "secret"
+    },
+    "ADMIN_EMAIL": {
+      "description": "E-mail de login da dona do ateliê"
+    },
+    "ADMIN_PASSWORD": {
+      "description": "Senha inicial do painel (8+ caracteres)"
+    },
+    "ATELIE_WHATSAPP": {
+      "description": "WhatsApp do ateliê com DDD, só números (ex.: 45999990000)",
+      "required": false
+    },
+    "ATELIE_ENDERECO": {
+      "description": "Endereço exibido no site",
+      "required": false
+    },
+    "ATELIE_HORARIO": {
+      "description": "Dias e horários de atendimento",
+      "required": false
+    },
+    "EVOLUTION_API_URL": {
+      "description": "URL da Evolution API (WhatsApp). Deixe vazio para configurar depois.",
+      "required": false
+    },
+    "EVOLUTION_API_KEY": {
+      "description": "Chave (AUTHENTICATION_API_KEY) da Evolution API",
+      "required": false
+    },
+    "APP_URL": {
+      "description": "URL pública deste app, ex.: https://trinar-atelie.herokuapp.com",
+      "required": false
+    }
+  }
+}
